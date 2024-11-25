@@ -5,7 +5,8 @@ import java.util.Optional;
 
 public interface Repository<T>{
 
-    int save(T type);
-    Optional<T> findById(int id);
-    List<T> findAll();
+    int salvar(T type);
+    Optional<T> obterId(int id);
+    List<T> obterTodos();
+    int update(T type);
 }
