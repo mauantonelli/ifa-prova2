@@ -1,4 +1,6 @@
 package domain.repository;
 
-public interface LocacaoRepository {
+import domain.entity.Locacao;
+
+public interface LocacaoRepository extends Repository<Locacao>{
 }

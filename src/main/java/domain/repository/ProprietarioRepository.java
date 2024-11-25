@@ -1,4 +1,6 @@
 package domain.repository;
 
-public interface ProprietarioRepository {
+import domain.entity.Proprietario;
+
+public interface ProprietarioRepository extends Repository<Proprietario> {
 }

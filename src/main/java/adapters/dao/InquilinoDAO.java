@@ -1,4 +1,6 @@
 package adapters.dao;
 
-public interface InquilinoDAO {
+import domain.entity.Inquilino;
+
+public interface InquilinoDAO extends DAO<Inquilino>{
 }

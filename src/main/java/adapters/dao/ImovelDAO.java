@@ -1,4 +1,6 @@
 package adapters.dao;
 
-public interface ImovelDAO {
+import domain.entity.Imovel;
+
+public interface ImovelDAO extends DAO<Imovel> {
 }

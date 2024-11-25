@@ -1,4 +1,6 @@
 package adapters.dao;
 
-public interface LocacaoDAO {
+import domain.entity.Locacao;
+
+public interface LocacaoDAO extends DAO<Locacao>{
 }

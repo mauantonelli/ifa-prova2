@@ -1,4 +1,6 @@
 package domain.repository;
 
-public interface InquilinoRepository {
+import domain.entity.Inquilino;
+
+public interface InquilinoRepository extends Repository<Inquilino>{
 }

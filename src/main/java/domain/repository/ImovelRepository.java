@@ -1,4 +1,6 @@
 package domain.repository;
 
-public interface ImovelRepository {
+import domain.entity.Imovel;
+
+public interface ImovelRepository extends Repository<Imovel>{
 }

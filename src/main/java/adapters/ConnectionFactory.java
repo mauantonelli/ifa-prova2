@@ -1,4 +1,5 @@
-ckage adapters;
+package adapters;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
