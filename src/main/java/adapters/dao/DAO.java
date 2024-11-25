@@ -8,5 +8,5 @@ public interface DAO<T> {
     int salvar(T type);
     Optional<T> obterId(int id);
     List<T> obterTodos();
-    int update(T type);
+
 }
