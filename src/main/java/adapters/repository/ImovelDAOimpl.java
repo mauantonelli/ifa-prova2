@@ -8,4 +8,6 @@ public class ImovelDAOimpl {
     public ImovelDAOimpl(ImovelDAO dao) {
         this.dao = dao;
     }
+
+
 }
