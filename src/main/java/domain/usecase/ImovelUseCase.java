@@ -15,7 +15,7 @@ public class ImovelUseCase {
     }
 
 
-    public void save(Imovel imovel){
+    public void salvar(Imovel imovel){
         repository.salvar(imovel);
     }
 
