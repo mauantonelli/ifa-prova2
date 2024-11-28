@@ -1,6 +1,8 @@
 package domain.usecase;
 
+import domain.entity.Inquilino;
 import domain.entity.Locacao;
+import domain.entity.Proprietario;
 import domain.repository.LocacaoRepository;
 
 import java.util.List;
@@ -23,5 +25,13 @@ public class LocacaoUseCase {
 
     Optional<Locacao> obterPorId(int id){
         return repository.obterId(id);
+    }
+
+    List<Locacao> obterLocacaoPorProprietario(Proprietario proprietario){
+        return repository.obterLocacaoPorProprietario(proprietario);
+    }
+
+    List<Locacao> obterLocacaoPorInquilino(Inquilino inqulino){
+        return repository.obterLocacaoPorInquilino(inqulino);
     }
 }
