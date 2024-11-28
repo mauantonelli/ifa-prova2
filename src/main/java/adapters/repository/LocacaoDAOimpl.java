@@ -39,6 +39,6 @@ public class LocacaoDAOimpl implements LocacaoRepository {
 
     @Override
     public List<Locacao> obterTodos() {
-        return null;
+        return dao.obterTodos();
     }
 }

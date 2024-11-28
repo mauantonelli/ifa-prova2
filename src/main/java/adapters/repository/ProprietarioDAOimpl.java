@@ -31,12 +31,12 @@ public class ProprietarioDAOimpl implements ProprietarioRepository {
 
     @Override
     public Optional<Proprietario> obterId(int id) {
-        return Optional.empty();
+        return dao.obterId(id);
     }
 
     @Override
     public List<Proprietario> obterTodos() {
-        return null;
+        return dao.obterTodos();
     }
 
 }

@@ -30,11 +30,11 @@ public class ImovelDAOimpl implements ImovelRepository {
 
     @Override
     public Optional<Imovel> obterId(int id) {
-        return Optional.empty();
+        return dao.obterId(id);
     }
 
     @Override
     public List<Imovel> obterTodos() {
-        return null;
+        return dao.obterTodos();
     }
 }

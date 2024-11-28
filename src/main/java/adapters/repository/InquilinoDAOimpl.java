@@ -28,11 +28,11 @@ public class InquilinoDAOimpl implements InquilinoRepository {
 
     @Override
     public Optional<Inquilino> obterId(int id) {
-        return Optional.empty();
+        return dao.obterId(id);
     }
 
     @Override
     public List<Inquilino> obterTodos() {
-        return null;
+        return dao.obterTodos();
     }
 }
