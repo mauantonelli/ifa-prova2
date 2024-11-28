@@ -17,6 +17,7 @@ public class InquilinoDAOimpl implements InquilinoRepository {
 
     @Override
     public void apagar(Inquilino inquilino) {
+        dao.apagar(inquilino);
 
     }
 

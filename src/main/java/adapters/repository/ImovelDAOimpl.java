@@ -18,7 +18,7 @@ public class ImovelDAOimpl implements ImovelRepository {
 
     @Override
     public List<Imovel> obterImovelPorProprietario(Proprietario proprietario) {
-        return null;
+        return dao.obterImovelPorProprietario(proprietario);
     }
 
     @Override

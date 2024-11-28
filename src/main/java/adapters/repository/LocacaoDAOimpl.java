@@ -18,12 +18,12 @@ public class LocacaoDAOimpl implements LocacaoRepository {
 
     @Override
     public List<Locacao> obterLocacaoPorProprietario(Proprietario proprietario) {
-        return null;
+        return dao.obterLocacaoPorProprietario(proprietario);
     }
 
     @Override
     public List<Locacao> obterLocacaoPorInquilino(Inquilino inquilino) {
-        return null;
+        return dao.obterLocacaoPorInquilino(inquilino);
     }
 
     @Override
