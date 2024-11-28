@@ -34,6 +34,23 @@ public class ProprietarioDAOimpl implements  ProprietarioDAO {
 
     @Override
     public Optional<Proprietario> obterId(int id) {
+        String sql = "SELECT * FROM manutencao WHERE id=?";
+        try (PreparedStatement stmt = ConnectionFactory.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Proprietario proprietario = new Proprietario(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getString("telefone")
+                );
+
+                return Optional.of(proprietario);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return Optional.empty();
     }
 
