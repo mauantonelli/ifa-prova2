@@ -2,6 +2,7 @@ package adapters.dao;
 
 import adapters.ConnectionFactory;
 import domain.entity.Inquilino;
+import domain.entity.Proprietario;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,6 +35,23 @@ public class InquilinoDAOimpl implements InquilinoDAO {
 
     @Override
     public Optional<Inquilino> obterId(int id) {
+        String sql = "SELECT * FROM inquilino WHERE id=?";
+        try (PreparedStatement stmt = ConnectionFactory.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Inquilino inquilino = new Inquilino(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getString("cpf")
+                );
+
+                return Optional.of(inquilino);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return Optional.empty();
     }
 
