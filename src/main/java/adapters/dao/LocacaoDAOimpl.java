@@ -1,6 +1,7 @@
 package adapters.dao;
 
 import adapters.ConnectionFactory;
+import domain.entity.Imovel;
 import domain.entity.Inquilino;
 import domain.entity.Locacao;
 import domain.entity.Proprietario;
@@ -36,6 +37,29 @@ public class LocacaoDAOimpl implements LocacaoDAO{
 
     @Override
     public Optional<Locacao> obterId(int id) {
+        String sql = "SELECT * FROM locacao WHERE id=?";
+        try (PreparedStatement stmt = ConnectionFactory.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            Inquilino inquilino = new InquilinoDAOimpl().obterId(rs.getInt("inquilino")).orElse(null);
+            Imovel imovel = new ImovelDAOimpl().obterId(rs.getInt("imovel")).orElse(null);
+
+            if (rs.next()) {
+                Locacao locacao = new Locacao(
+                        rs.getInt("id"),
+                        rs.getString("endereco"),
+                        rs.getString("areaTotal"),
+                        rs.getDouble("valorAluguel"),
+                        inquilino,
+                        imovel
+                );
+
+                return Optional.of(locacao);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return Optional.empty();
     }
 
