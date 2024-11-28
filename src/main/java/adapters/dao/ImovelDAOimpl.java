@@ -2,6 +2,7 @@ package adapters.dao;
 
 import adapters.ConnectionFactory;
 import domain.entity.Imovel;
+import domain.entity.Inquilino;
 import domain.entity.Proprietario;
 
 import java.sql.PreparedStatement;
@@ -33,6 +34,26 @@ public class ImovelDAOimpl implements ImovelDAO{
 
     @Override
     public Optional<Imovel> obterId(int id) {
+        String sql = "SELECT * FROM imovel WHERE id=?";
+        try (PreparedStatement stmt = ConnectionFactory.getConnection().prepareStatement(sql)) {
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            Proprietario proprietario = new ProprietarioDAOimpl().obterId(rs.getInt("veiculo")).orElse(null);
+
+            if (rs.next()) {
+                Imovel imovel = new Imovel(
+                        rs.getInt("id"),
+                        rs.getString("endereco"),
+                        rs.getString("areaTotal"),
+                        proprietario
+                );
+
+                return Optional.of(imovel);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return Optional.empty();
     }
 
